@@ -2,8 +2,11 @@ import 'dart:convert';
 
 import 'package:day49_fitness_app_with_api/model/model.dart';
 import 'package:day49_fitness_app_with_api/pages/secondpage.dart';
+import 'package:day49_fitness_app_with_api/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -51,6 +54,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     // TODO: implement initState
+    Provider.of<HomeProvider>(context,listen: false).getHomepageData();
     fetchData();
     /* Future.delayed(Duration(seconds: 3), () {
 
@@ -60,6 +64,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final categories = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor:  Color(0xff091524),
