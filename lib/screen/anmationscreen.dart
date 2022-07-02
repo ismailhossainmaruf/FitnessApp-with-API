@@ -39,7 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Stack(
               children: [
-               Image.asset("assets/logo2.png"),
+               Image.asset("assets/logoone.png",
+               height: 300,
+                   width: 350,),
               ],
             ),
             SizedBox(height: 10,),
@@ -53,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 child: Text("Be Fit..",
                   style: TextStyle(
-                      fontSize: 35,
+                      fontSize: 30,
                       fontWeight: FontWeight.w700,
                       color: Colors.white60
                   ),),

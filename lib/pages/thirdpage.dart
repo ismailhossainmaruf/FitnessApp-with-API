@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:day49_fitness_app_with_api/model/model.dart';
+import 'package:day49_fitness_app_with_api/provider/home_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LastPage extends StatefulWidget {
   LastPage({Key? key,this.exerciesModel,this.second}) : super(key: key);
@@ -46,11 +48,13 @@ class _LastPageState extends State<LastPage> {
         Startsound=timer.tick;
       });
     });
+    Provider.of<HomeProvider>(context,listen: false).getHomepageData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final categories = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor:  Color(0xff091524),
